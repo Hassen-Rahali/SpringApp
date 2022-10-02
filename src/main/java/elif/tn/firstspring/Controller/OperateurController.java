@@ -40,5 +40,9 @@ void supprimerOperateur (@PathVariable("id") Long idOperateur ) {
       operateurService.removeOperateur(idOperateur);
 
 }
+@GetMapping("/assignOperateurToFacture/{idOperateur}/{idFacture}")
+void assignOperateurToFacture(@PathVariable("idOperateur")Long idOperateur,@PathVariable("idFacture")Long idFacture){
+      operateurService.assignOperateurToFacture(idOperateur,idFacture);
+}
 
 }

@@ -16,4 +16,7 @@ public interface IOperateur {
 
     void removeOperateur (Long id);
 
+
+    public void assignOperateurToFacture (Long idOperateur ,Long idFacture);
+
 }

@@ -1,5 +1,6 @@
 package elif.tn.firstspring.services;
 
+import elif.tn.firstspring.model.Facture;
 import elif.tn.firstspring.model.OPERATEUR;
 import elif.tn.firstspring.repository.OperateurRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class OperateurService implements IOperateur{
     @Autowired
 
     private OperateurRepository operateurRepository;
+    @Autowired
+    private IFacture factureService;
 
 
     @Override
@@ -43,6 +46,16 @@ public class OperateurService implements IOperateur{
     @Override
     public void removeOperateur(Long id) {
          operateurRepository.deleteById(id);
+
+    }
+
+    @Override
+    public void assignOperateurToFacture(Long idOperateur, Long idFacture) {
+        OPERATEUR o = operateurRepository.findById(idOperateur).orElse(null);
+        Facture f = factureService.retrieveFacture(idFacture);
+            o.getFacture().add(f);
+            operateurRepository.save(o);
+
 
     }
 }

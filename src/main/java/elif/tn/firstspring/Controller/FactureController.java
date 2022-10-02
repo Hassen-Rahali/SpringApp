@@ -31,7 +31,12 @@ void cancelFacture(@PathVariable ("id") Long idFacture){
 }
 
 
+@GetMapping("/affichageFacturesFournisseur/{idFournisseur}")
+List<Facture> affichageFacturesFournisseur (@PathVariable ("idFournisseur") Long idFournisseur ){
+     return factureService.getFacturesByFournisseur(idFournisseur);
 
+
+}
 
 
 

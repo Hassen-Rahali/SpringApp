@@ -13,14 +13,14 @@ import java.util.List;
 @Service
 public class ProduitService implements  IProduit{
     @Autowired
-    ProduitRepository produit;
+    ProduitRepository produitRepository;
     @Autowired
     ICategorieProduit categorieProduit;
     @Autowired
     IStock stock;
     @Override
     public List<Produit> retrieveAllProduits() {
-        return produit.findAll();
+        return produitRepository.findAll();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class ProduitService implements  IProduit{
         p.setStock(s);
         p.setCategorieProduit(cat);
 
-        return produit.save(p);
+        return produitRepository.save(p);
     }
 
     @Override
@@ -40,11 +40,26 @@ public class ProduitService implements  IProduit{
         Stock s=stock.retrieveStock(idStock);
         p.setStock(s);
         p.setCategorieProduit(cat);
-        return produit.save(p);
+        return produitRepository.save(p);
     }
 
     @Override
     public Produit retrieveProduit(Long id) {
-        return produit.findById(id).orElse(null);
+        return produitRepository.findById(id).orElse(null);
     }
+
+    @Override
+    public void assignProduitToStock(Long idProduit, Long idStock) {
+        Stock s=stock.retrieveStock(idStock);
+        Produit p=produitRepository.findById(idProduit).orElse(null);
+        p.setStock(s);
+        produitRepository.save(p);
+
+
+
+    }
+
+
 }
+
+

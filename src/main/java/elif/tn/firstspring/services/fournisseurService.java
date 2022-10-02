@@ -1,5 +1,6 @@
 package elif.tn.firstspring.services;
 
+import elif.tn.firstspring.model.DetailFournisseur;
 import elif.tn.firstspring.model.fournisseur;
 import elif.tn.firstspring.repository.DetailFournisseurRepository;
 import elif.tn.firstspring.repository.fournisseurRepository;
@@ -23,7 +24,7 @@ public class fournisseurService implements Ifournisseur {
 
     @Override
     public fournisseur addFournisseur(fournisseur f) {
-     detailFournisseurRepository.save(f.getDetailFournisseur());
+        //detailFournisseurRepository.save(f.getDetailFournisseur());
         return fournisseurRepository.save(f);
     }
     @Override
@@ -35,4 +36,8 @@ public class fournisseurService implements Ifournisseur {
     public fournisseur retrieveFournisseur(Long id) {
         return fournisseurRepository.findById(id).orElse(null);
     }
+
+
+
 }
+

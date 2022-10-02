@@ -21,8 +21,7 @@ import javax.persistence.Entity;
 public class Facture implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="idFacture")
-    private  long id;
+    private  long idFacture;
     @Column(name="montantRemise")
     private  float mremise;
     @Column(name="montantFacture")
@@ -39,6 +38,7 @@ public class Facture implements Serializable {
     private Set<DetailFacture> detailFactures;
 
     @OneToMany( mappedBy="facture")
+    @JsonIgnore
     private Set<Reglement> reglements;
 
     @ManyToOne

@@ -39,4 +39,10 @@ return produitService.retrieveProduit(idProduit);
         return produitService.updateProduit(produit,idCat,idstock);
     }
 
+    @GetMapping("/assignProduitToStock/{idProduit}/{idStock}")
+     void assignProduitToStock(@PathVariable("idProduit") Long idProduit, @PathVariable("idStock") Long idStock) {
+         produitService.assignProduitToStock(idProduit,idStock);
+
+    }
+
 }

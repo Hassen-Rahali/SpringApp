@@ -24,6 +24,7 @@ public class fournisseur implements Serializable {
     private String codeFournisseur;
     private  String libelleFournisseur;
 
+
     @OneToMany( mappedBy="fournisseur")
     @JsonIgnore
     private Set<Facture> facture;
@@ -31,8 +32,8 @@ public class fournisseur implements Serializable {
     @OneToOne
     private DetailFournisseur detailFournisseur;
 
-    @ManyToMany
-    private Set<SecteurActivite> secteurActivités;
+    @ManyToMany(mappedBy = "fournisseurs")
+    private Set<SecteurActivite> secteurActivite;
 
 
 }

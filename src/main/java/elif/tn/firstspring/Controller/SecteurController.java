@@ -42,5 +42,13 @@ public class SecteurController {
     }
 
 
+    @PostMapping("/assignSecteurToFournisseur/{idFourniseur}/{idSecteur}")
+void assignSecteurActiviteToFournisseur(@PathVariable("idFourniseur") Long idFournisseur,@PathVariable("idSecteur") Long idSecteur){
+        secteurService.assignSecteurActiviteToFournisseur(idFournisseur,idSecteur);
+    }
+
+
+
+
 
 }

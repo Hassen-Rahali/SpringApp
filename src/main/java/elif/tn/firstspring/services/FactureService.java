@@ -36,4 +36,10 @@ private FactureRepository FactureRepositorry;
     public Facture retrieveFacture(Long id) {
         return FactureRepositorry.findById(id).orElse(null);
     }
+
+    @Override
+    public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
+        return FactureRepositorry.findByFournisseur_IdFournisseur(idFournisseur);
+
+    }
 }

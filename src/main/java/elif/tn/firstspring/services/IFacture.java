@@ -9,4 +9,7 @@ public interface IFacture {
     List<Facture> retrieveAllFactures();
     void cancelFacture(Long id);
     Facture retrieveFacture(Long id);
+
+    List<Facture> getFacturesByFournisseur(Long idFournisseur);
+
 }

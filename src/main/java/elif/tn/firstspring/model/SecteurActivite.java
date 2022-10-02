@@ -27,6 +27,6 @@ class SecteurActivite implements Serializable{
     private long idSecteurActivite;
     private String codeSecteurActivite;
     private  String libelleSecteurActivite;
-   @ManyToMany (mappedBy = "secteurActivités")
+   @ManyToMany
    private Set<fournisseur> fournisseurs;
 }
