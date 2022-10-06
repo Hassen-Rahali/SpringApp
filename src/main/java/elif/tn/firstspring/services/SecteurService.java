@@ -52,7 +52,6 @@ public class SecteurService implements ISecteurActivite{
 
         fournisseur f= fournisseurService.retrieveFournisseur(IdFournisseur);
         SecteurActivite sa =retrieveSecteurActivite(IdActivite);
-
         sa.getFournisseurs().add(f);
         SecteurActiviteRepository.save(sa);
 

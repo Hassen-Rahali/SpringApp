@@ -1,4 +1,5 @@
 package elif.tn.firstspring.model;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,14 +26,15 @@ public class DetailFacture implements Serializable {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private long idDetailFacture;
     private Integer qteCommande;
-    private float TotalDetail;
     private Integer pourcentageRemise;
     private  float montantRemise;
+    private float prixTotalDetail;
 
 
     @ManyToOne
     Produit produit;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
+            @JsonIgnore
     Facture facture;
 }

@@ -7,5 +7,6 @@ import java.util.List;
 public interface IReglement {
     public List<Reglement> retrieveReglementByFacture(Long idFacture);
 
+  public Reglement addReglement (Reglement r , Long idFacture);
 
 }

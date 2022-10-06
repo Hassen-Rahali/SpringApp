@@ -12,4 +12,6 @@ public interface IFacture {
 
     List<Facture> getFacturesByFournisseur(Long idFournisseur);
 
+    Facture addFacture(Facture f , Long idFournisseur);
+
 }
